@@ -1,323 +1,386 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="باتو للإعلام الرقمي والذكاء التسويقي — إعلام رقمي · ذكاء تسويقي · محتوى بصري">
-  <title>باتو — لا تلاحق السوق. افهم إلى أين يتجه.</title>
-  <style>
-    :root{
-      --bg:#07111f;--panel:#0d1b2d;--panel2:#10243a;--ink:#f4f8ff;--muted:#a8bad0;--accent:#13b8ff;--gold:#ffca75;--line:#203a55;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:var(--bg);color:var(--ink);font-family:Tahoma,Arial,\"Noto Naskh Arabic\",sans-serif;line-height:1.6}
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:1100px;margin:0 auto;padding:0 18px}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="باتو — إعلام رقمي وذكاء تسويقي" />
+    <title>باتو | لا تلاحق السوق. افهم إلى أين يتجه.</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap header-row">
+        <a href="#home" class="brand" aria-label="الصفحة الرئيسية">
+          <span class="brand-main">B<span>ato</span></span>
+          <span class="brand-sub">إعلام رقمي · ذكاء تسويقي</span>
+        </a>
 
-    header{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,rgba(7,17,31,0.85),rgba(7,17,31,0.75));border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
-    .nav{height:68px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.1rem}
-    .brand b{color:var(--accent);font-weight:800}
-    nav ul{display:flex;gap:14px;list-style:none;margin:0;padding:0}
-    nav a{padding:8px 10px;border-radius:8px;font-weight:600;color:var(--muted)}
-    nav a:hover{background:rgba(255,255,255,0.02);color:var(--ink)}
-    .menu-btn{display:none;background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px;border-radius:8px;color:var(--muted)}
+        <button id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="nav" type="button">
+          ☰
+        </button>
 
-    .hero{padding:64px 0 48px;background:radial-gradient(ellipse at 80% 10%,#073d68 0,transparent 42%),linear-gradient(140deg,#07111f,#091a2b 65%,#06101c);overflow:hidden}
-    .hero-grid{display:grid;grid-template-columns:1fr 380px;gap:26px;align-items:center}
-    .eyebrow{color:var(--muted);font-size:.95rem;margin-bottom:8px}
-    .hero h1{font-size:2.4rem;margin:0 0 12px;line-height:1.08}
-    .lead{color:var(--muted);max-width:64ch}
-    .slogan{display:inline-block;background:linear-gradient(90deg,var(--accent),#56e0ee);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800}
+        <nav id="nav" class="nav" aria-label="قائمة الموقع">
+          <a href="#home">الرئيسية</a>
+          <a href="#news">مختبر الأفكار</a>
+          <a href="#sectors">القطاعات</a>
+          <a href="#analysis">التحليلات</a>
+          <a href="#media">المحتوى</a>
+          <a href="#services">خدماتنا</a>
+          <a href="#contact">اتصل بنا</a>
+        </nav>
+      </div>
+    </header>
 
-    .card{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);padding:18px;border-radius:12px}
-    .stats{display:flex;gap:12px;margin-top:18px}
-    .stat{flex:1;background:transparent;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);text-align:center}
-    .stat strong{display:block;font-size:1.1rem}
+    <main id="home">
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">إعلام رقمي · ذكاء تسويقي · محتوى بصري</p>
+            <h1>لا تلاحق السوق.<br><span>افهم إلى أين يتجه.</span></h1>
+            <p class="lead">
+              باتو منصة للتفكير والتحليل في التحوّلات السوقية، ولتحويل المعلومات إلى محتوى يجذب الجمهور ويقود القرار.
+            </p>
+            <div class="hero-actions">
+              <a href="#contact" class="btn btn-primary">تواصل معنا</a>
+              <a href="#news" class="btn btn-secondary">استكشف المختبر</a>
+            </div>
+          </div>
 
-    section{padding:56px 0}
-    .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:18px}
-    .section-head h2{font-size:1.45rem;margin:0}
-    .filters{display:flex;gap:8px;align-items:center}
-    .filter-btn{background:transparent;border:1px solid rgba(255,255,255,0.03);color:var(--muted);padding:8px 12px;border-radius:10px;cursor:pointer}
-    .filter-btn.active{background:var(--accent);color:#05141a;border:1px solid rgba(255,255,255,0.06)}
-
-    .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .story{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
-    .story .tag{display:inline-block;background:rgba(255,255,255,0.03);padding:6px 8px;border-radius:8px;color:var(--muted);font-size:.85rem;margin-bottom:8px}
-    .story h3{margin:6px 0 8px;font-size:1rem}
-    .story p{color:var(--muted);font-size:.95rem;margin:0}
-
-    .sectors-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-    .sector{padding:18px;border-radius:12px;border:1px solid var(--line);background:linear-gradient(180deg,var(--panel),#0a2434)}
-
-    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-    .visual{height:120px;border-radius:8px;background:linear-gradient(120deg,var(--panel2),#073d68);display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:700}
-
-    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-    .service{padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
-
-    .contact{display:grid;grid-template-columns:1fr 360px;gap:18px}
-    form{display:flex;flex-direction:column;gap:10px}
-    input,textarea,select{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px;border-radius:8px;color:var(--ink)}
-    button.primary{background:var(--accent);border:none;color:#05141a;padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:700}
-
-    footer{border-top:1px solid var(--line);padding:20px 0;color:var(--muted)}
-
-    @media(max-width:1000px){.hero-grid{grid-template-columns:1fr 320px}.news-grid{grid-template-columns:repeat(2,1fr)}.sectors-grid{grid-template-columns:repeat(2,1fr)}.services{grid-template-columns:repeat(2,1fr)}.gallery{grid-template-columns:repeat(3,1fr)}.contact{grid-template-columns:1fr}}
-    @media(max-width:640px){nav ul{display:none}.menu-btn{display:inline-block} .hero h1{font-size:1.9rem}.news-grid{grid-template-columns:1fr}.sectors-grid{grid-template-columns:1fr}.services{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(2,1fr)} }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="wrap nav">
-      <div class="brand"><span style="font-size:1.2rem">باتو</span><b>ato</b><span style="font-size:.78rem;color:var(--muted);font-weight:400;margin-right:8px">إعلام رقمي · ذكاء تسويقي · محتوى بصري</span></div>
-      <nav aria-label="قائمة التنقل">
-        <button class="menu-btn" id="menu" aria-expanded="false">☰</button>
-        <ul id="navlinks">
-          <li><a href="#home">الرئيسية</a></li>
-          <li><a href="#news">مختبر الأفكار</a></li>
-          <li><a href="#sectors">القطاعات</a></li>
-          <li><a href="#analysis">تحليلات</a></li>
-          <li><a href="#visuals">محتوى بصري</a></li>
-          <li><a href="#services">خدماتنا</a></li>
-          <li><a href="#contact">تواصل</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main id="home">
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <div>
-          <div class="eyebrow">إعلام رقمي · ذكاء تسويقي · محتوى بصري</div>
-          <h1>لا تلاحق السوق. <span class="slogan">افهم إلى أين يتجه.</span></h1>
-          <p class="lead">باتو منصة تحليلية ومحرّرة تُرصد التحولات في القطاعات الرئيسية وتحوّل المعلومة إلى فرص تسويقية ومحتوى بصري جاهز للنشر. هذه نسخة أولية تجريبية؛ لا تعتمد على بيانات مدخلة آليًا حتى يتم ربط مصادر موثوقة.</p>
-
-          <div class="stats" aria-hidden="true">
-            <div class="stat card"><div style="font-size:.85rem;color:var(--muted)">قطاعات مغطاة</div><strong>3</strong></div>
-            <div class="stat card"><div style="font-size:.85rem;color:var(--muted)">مقالات تجريبية</div><strong>6</strong></div>
-            <div class="stat card"><div style="font-size:.85rem;color:var(--muted)">محتوى بصري</div><strong>12</strong></div>
+          <div class="hero-visual" aria-label="تمثيل بصري للمنصة">
+            <div class="visual-card visual-one"></div>
+            <div class="visual-card visual-two"></div>
+            <div class="visual-card visual-three"></div>
           </div>
         </div>
+      </section>
 
-        <aside class="card" aria-labelledby="hero-aside">
-          <h3 id="hero-aside">تجهيز سريع للنشر</h3>
-          <p class="lead" style="margin:6px 0 12px;color:var(--muted)">معاينة لعناصر المحتوى البصري والأفكار السريعة التي يمكن تحويلها لمنشورات في الشبكات الاجتماعية.</p>
-          <div class="gallery" role="list">
-            <div class="visual">منشور 1</div>
-            <div class="visual">منشور 2</div>
-            <div class="visual">منشور 3</div>
-            <div class="visual">منشور 4</div>
+      <section id="news" class="section">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">مختبر الأفكار</p>
+              <h2>نحو محتوى يترجم التحول إلى فرصة</h2>
+            </div>
+            <p class="section-copy">هذه بطاقات تجريبية لعرض طريقة المحتوى والواجهة. لا تمثل أخبارًا أو إحصاءات مؤكدة.</p>
           </div>
-        </aside>
-      </div>
-    </section>
 
-    <section id="news">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>مختبر الأفكار</h2>
-          <div class="filters">
-            <input id="search" type="search" placeholder="ابحث..." style="padding:8px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:var(--ink)">
-            <button class="filter-btn active" data-filter="الكل">الكل</button>
-            <button class="filter-btn" data-filter="السيارات">السيارات</button>
-            <button class="filter-btn" data-filter="الطيران">الطيران</button>
-            <button class="filter-btn" data-filter="الاتصالات">الاتصالات</button>
+          <div class="toolbar">
+            <label class="search-box" aria-label="بحث في المحتوى">
+              <span>بحث</span>
+              <input id="search" type="search" placeholder="ابحث في العناوين أو الكلمات">
+            </label>
+
+            <div class="filter-group" aria-label="مرشحات القطاعات">
+              <button class="filter active" type="button" data-filter="الكل">الكل</button>
+              <button class="filter" type="button" data-filter="السيارات">السيارات</button>
+              <button class="filter" type="button" data-filter="الطيران">الطيران</button>
+              <button class="filter" type="button" data-filter="الاتصالات">الاتصالات</button>
+            </div>
           </div>
-        </div>
 
-        <div class="news-grid" id="newsGrid">
-          <article class="story" data-category="السيارات" data-title="السيارة تصبح منصة برمجية"><span class="tag">السيارات</span>
-            <h3>السيارة تصبح منصة برمجية</h3>
-            <p>تزايد الاعتماد على برمجيات التحكم والاتصال يجعل السيارة بيئة خدمات رقمية — هذا ملخص تجريبي يستلزم مصادر للتحقق.</p>
-          </article>
+          <div class="story-grid" id="storyGrid">
+            <article class="story" data-category="السيارات" data-title="السيارة أصبحت منصة برمجية متحركة">
+              <span class="tag">السيارات</span>
+              <h3>السيارة أصبحت منصة برمجية متحركة</h3>
+              <p>طُرحت فكرة تجريبية حول التحول من السيارة كمنتج إلى تجربة رقمية متصلة.</p>
+              <div class="story-meta"><span>تجريبي</span><span>حالة نموذجية</span></div>
+            </article>
 
-          <article class="story" data-category="الطيران" data-title="رحلة المسافر تبدأ قبل المطار"><span class="tag">الطيران</span>
-            <h3>رحلة المسافر تبدأ قبل المطار</h3>
-            <p>خدمات الحجز الذكية وتجربة المسافر الرقمية تُعيد تشكيل سلوكيات السفر — محتوى تجريبي للعرض.</p>
-          </article>
+            <article class="story" data-category="الطيران" data-title="رحلة المسافر تبدأ قبل المطار">
+              <span class="tag">الطيران</span>
+              <h3>رحلة المسافر تبدأ قبل المطار</h3>
+              <p>نوع من المحتوى التحليلي الذي يربط تجربة السفر بتجربة التفاعل الرقمي.</p>
+              <div class="story-meta"><span>تجريبي</span><span>نوع محتوى</span></div>
+            </article>
 
-          <article class="story" data-category="الاتصالات" data-title="الاتصال يركّب خدمات غير مرئية"><span class="tag">الاتصالات</span>
-            <h3>الاتصال يركّب خدمات غير مرئية</h3>
-            <p>البنية التحتية للاتصالات تتوسع في تمكين خدمات لا تظهر للمستخدم المباشر — بطاقة مُعدّة كنموذج.</p>
-          </article>
-
-          <article class="story" data-category="السيارات" data-title="تشارك بيانات المركبات"><span class="tag">السيارات</span>
-            <h3>تشارك بيانات المركبات</h3>
-            <p>نماذج أعمال جديدة مبنية على مشاركة بيانات الاستخدام ضمن اتفاقيات خصوصية واضحة.</p>
-          </article>
-
-          <article class="story" data-category="الطيران" data-title="تحليلات تشغيلية للمطارات"><span class="tag">الطيران</span>
-            <h3>تحليلات تشغيلية للمطارات</h3>
-            <p>تحسين تدفق الركاب من خلال تحليلات العمليات — مثال مفهومي يتطلب بيانات تشغيلية حقيقية.</p>
-          </article>
-
-          <article class="story" data-category="الاتصالات" data-title="شبكات خاصة وخدمات أعمال"><span class="tag">الاتصالات</span>
-            <h3>شبكات خاصة وخدمات أعمال</h3>
-            <p>تركيز على حلول الاتصالات للأعمال عبر شبكات خاصة وآمنة — بطاقة تجريبية.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="sectors">
-      <div class="wrap">
-        <div class="section-head"><h2>نراقب ما يغيّر السوق</h2><p style="color:var(--muted)">نركز على قطاعات ذات حركة وتسارع تقني وتجاري.</p></div>
-        <div class="sectors-grid">
-          <div class="sector"><h3>السيارات</h3><p style="color:var(--muted)">اتجاهات القيادة الذاتية، مشاركة البيانات، وخدمات التنقل.</p></div>
-          <div class="sector"><h3>الطيران</h3><p style="color:var(--muted)">تجربة المسافر، تحليلات التشغيل، وشبكات ذكية للمطارات.</p></div>
-          <div class="sector"><h3>الاتصالات</h3><p style="color:var(--muted)">شبكات الجيل القادم، حلول الأعمال، وخدمات التحول الرقمي.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="analysis">
-      <div class="wrap">
-        <div class="section-head"><h2>تحليلات وفرص</h2><p style="color:var(--muted)">أفكار عن فرص تسويقية بناءً على الملاحظات — هذه مسودات أولية تحتاج تحققًا بالمصادر.</p></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-          <div class="card">
-            <h3>فرصة: محتوى خدمات ما بعد البيع</h3>
-            <p style="color:var(--muted)">انشاء سلاسل محتوى تشرح خدمات ما بعد البيع الرقمية للسيارات لزيادة الاحتفاظ بالعملاء.</p>
-          </div>
-          <div class="card">
-            <h3>فرصة: تجارب مطار مخصصة</h3>
-            <p style="color:var(--muted)">تواصل العلامات التجارية مع المسافر عبر رسائل سياقية مبنية على المراحل التشغيلية.</p>
+            <article class="story" data-category="الاتصالات" data-title="الاتصال أساس خدمات لا نراها">
+              <span class="tag">الاتصالات</span>
+              <h3>الاتصال أساس خدمات لا نراها</h3>
+              <p>رؤية محتوى تسويقي حول الخدمات الخفية والأنظمة السحابية والبنية الرقمية.</p>
+              <div class="story-meta"><span>تجريبي</span><span>فرصة تسويقية</span></div>
+            </article>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="visuals">
-      <div class="wrap">
-        <div class="section-head"><h2>المحتوى البصري</h2><p style="color:var(--muted)">نماذج جاهزة يمكن تعديلها لوسائل التواصل.</p></div>
-        <div class="gallery">
-          <div class="visual">بوست 1</div>
-          <div class="visual">بوست 2</div>
-          <div class="visual">بوست 3</div>
-          <div class="visual">بوست 4</div>
+      <section id="sectors" class="section alt-section">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">القطاعات</p>
+              <h2>نراقب ما يغيّر السوق</h2>
+            </div>
+            <p class="section-copy">نبدأ بثلاثة قطاعات رئيسية، ثم نوسع التحليل حسب كل فرصة جديدة.</p>
+          </div>
+
+          <div class="sector-grid">
+            <article class="sector-card">
+              <div class="icon">01</div>
+              <h3>السيارات</h3>
+              <p>تجربة القيادة، الحلول الرقمية، الخدمات المتصلة، ومقاييس التفاعل داخل السيارة.</p>
+            </article>
+
+            <article class="sector-card">
+              <div class="icon">02</div>
+              <h3>الطيران</h3>
+              <p>رحلة المسافر، التوزيع الرقمي، الخدمات المسبقة، وتجارب السفر قبل الوصول.</p>
+            </article>
+
+            <article class="sector-card">
+              <div class="icon">03</div>
+              <h3>الاتصالات</h3>
+              <p>التحول الرقمي، البنية التحتية، خدمات الاشتراك، وتجربة العميل في البيئات المتصلة.</p>
+            </article>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="services">
-      <div class="wrap">
-        <div class="section-head"><h2>خدماتنا</h2><p style="color:var(--muted)">نحو صياغة محتوى استراتيجي وتحليلات قابلة للتنفيذ.</p></div>
-        <div class="services">
-          <div class="service card"><h4>رصد السوق</h4><p style="color:var(--muted)">جمع مؤشرات وتحويلها لقصص تحريرية.</p></div>
-          <div class="service card"><h4>تحليل الفرص</h4><p style="color:var(--muted)">تحديد قنوات نمو ومقترحات تسويقية قابلة للتنفيذ.</p></div>
-          <div class="service card"><h4>محتوى بصري</h4><p style="color:var(--muted)">قوالب ومنشورات جاهزة للتعديل والنشر.</p></div>
+      <section id="analysis" class="section">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">التحليلات</p>
+              <h2>من المعلومة إلى الفكرة</h2>
+            </div>
+            <p class="section-copy">نُصنّف الإشارات، نحلّلها، ثم نصل إلى رسائل محتوى قابلة للتنفيذ.</p>
+          </div>
+
+          <div class="analysis-grid">
+            <div class="analysis-box">
+              <h3>رصد الاتجاهات</h3>
+              <p>تحديد التغيّرات التي قد تؤثر على سلوك المستهلك أو المنافسة في كل قطاع.</p>
+            </div>
+            <div class="analysis-box">
+              <h3>تجميع الإشارات</h3>
+              <p>تجميع النقاط الميدانية والتنظيمية والرقمية ضمن منظور تسويقي متكامل.</p>
+            </div>
+            <div class="analysis-box">
+              <h3>تجهيز المحتوى</h3>
+              <p>تحويل الرؤية إلى عناوين، منشورات، ورسائل مبنية على معنى وملاءمة.</p>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="contact">
-      <div class="wrap">
-        <div class="section-head"><h2>تواصل معنا</h2><p style="color:var(--muted)">هذه طريقة تواصل تجريبية — يجب ربط نموذج بخادم بريد لاحقًا.</p></div>
-        <div class="contact">
-          <div class="card">
-            <form id="contactForm">
-              <label for="name">الاسم (اختياري)</label>
-              <input id="name" name="name" type="text" placeholder="اسمك">
-              <label for="email">البريد الإلكتروني</label>
-              <input id="email" name="email" type="email" placeholder="بريدك الإلكتروني" required>
-              <label for="message">الرسالة</label>
-              <textarea id="message" name="message" rows="5" placeholder="ما الذي ترغب بمشاركته؟" required></textarea>
-              <div style="display:flex;gap:8px;align-items:center">
-                <button type="submit" class="primary">إرسال (تجريبي)</button>
-                <span style="color:var(--muted);font-size:.9rem">لا يُرسل فعليًا — ربط الخلفية مطلوب.</span>
-              </div>
-              <div id="formResult" style="margin-top:8px;color:var(--gold);font-weight:700;display:none"></div>
+      <section id="media" class="section alt-section">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">المحتوى البصري</p>
+              <h2>منشورات جاهزة بلمسة احترافية</h2>
+            </div>
+            <p class="section-copy">أمثلة مرئية تجريبية للمحتوى، قابلة للتطوّر إلى حملات حقيقية.</p>
+          </div>
+
+          <div class="media-grid">
+            <div class="media-card"><span>معاينة 01</span></div>
+            <div class="media-card"><span>معاينة 02</span></div>
+            <div class="media-card"><span>معاينة 03</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="section">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">خدمات باتو</p>
+              <h2>نبني رؤية واضحة ثم نُحوّلها إلى محتوى</h2>
+            </div>
+            <p class="section-copy">هذا القسم يصف نموذج الخدمة، وليس حقيقة تشغيلية مضمونة.</p>
+          </div>
+
+          <div class="service-list">
+            <div class="service-item">
+              <h3>رصد السوق</h3>
+              <p>مراقبة التغيّرات والفرص في المجالات ذات الأولوية.</p>
+            </div>
+            <div class="service-item">
+              <h3>تحليل الاتجاهات</h3>
+              <p>تجميع الإشارات ووضعها ضمن منظور استراتيجي قابل للتنفيذ.</p>
+            </div>
+            <div class="service-item">
+              <h3>تصميم المحتوى</h3>
+              <p>إنتاج نصوص وبطاقات ورسائل بصرية تسند رؤية العلامة.</p>
+            </div>
+            <div class="service-item">
+              <h3>خطة التنفيذ</h3>
+              <p>تخطيط المحتوى مع الأولويات والوقت والرسائل المناسبة لكل منصة.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact-section">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">تواصل</p>
+              <h2>ابدأ مشروعك بثقة</h2>
+            </div>
+            <p class="section-copy">نموذج تواصل تجريبي لا يُستخدم إلا بعد ربطه بنظام بريد أو خدمة حقيقية.</p>
+          </div>
+
+          <div class="contact-grid">
+            <form id="contactForm" class="contact-form" novalidate>
+              <label>
+                الاسم
+                <input type="text" name="name" placeholder="اسمك الكامل" required>
+              </label>
+              <label>
+                البريد الإلكتروني
+                <input type="email" name="email" placeholder="example@domain.com" required>
+              </label>
+              <label>
+                الرسالة
+                <textarea name="message" rows="5" placeholder="اكتب فكرة مشروعك أو احتياجك"></textarea>
+              </label>
+              <button type="submit" class="btn btn-primary">إرسال</button>
+              <p id="formStatus" class="form-status" aria-live="polite"></p>
             </form>
+
+            <div class="contact-note">
+              <h3>ملاحظات مهمة</h3>
+              <ul>
+                <li>لا نستخدم أرقام أو حسابات غير موثقة.</li>
+                <li>هذا النموذج تجريبي، وربطه بالبريد الفعلي يتطلب خدمة موثوقة.</li>
+                <li>يجب الالتزام بسياسة الخصوصية عند تفعيل النموذج فعليًا.</li>
+              </ul>
+            </div>
           </div>
-
-          <aside class="card">
-            <h3>طرق التواصل</h3>
-            <p style="color:var(--muted)">لا نعرض أرقاماً أو حسابات عامة هنا. يمكنك ملء النموذج أعلاه لطلب تواصل، أو إضافة تفاصيل اتصال خاصة في إعدادات المشروع لاحقًا.</p>
-            <p style="color:var(--muted)"><strong>ملاحظات أمان:</strong> لا تخزن أي مفاتيح أو بيانات حساسة في ملفات الموقع العامة.</p>
-          </aside>
         </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-row">
+        <span>© <span id="year"></span> باتو — نموذج أولي تجريبي</span>
+        <span>HTML · CSS · JavaScript</span>
       </div>
-    </section>
+    </footer>
 
-  </main>
-
-  <footer>
-    <div class="wrap footer-row" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-      <div>© <span id="year"></span> باتو — نموذج أولي تجريبي</div>
-      <div style="color:var(--muted)">مبني بـ HTML وCSS وJavaScript · جاهز للنشر على GitHub Pages</div>
-    </div>
-  </footer>
-
-  <script>
-    (function(){
-      document.getElementById('year').textContent = new Date().getFullYear();
-
-      // Mobile nav toggle
-      const menu = document.getElementById('menu');
-      const nav = document.getElementById('navlinks');
-      if(menu){
-        menu.addEventListener('click', ()=>{
-          const open = nav.style.display === 'flex';
-          nav.style.display = open ? '' : 'flex';
-          nav.style.flexDirection = 'column';
-          nav.style.gap = '8px';
-          menu.setAttribute('aria-expanded', String(!open));
-        });
-      }
-
-      // News filter + search
-      let active = 'الكل';
-      const cards = Array.from(document.querySelectorAll('.story'));
-      const search = document.getElementById('search');
-      const filterButtons = Array.from(document.querySelectorAll('.filter-btn'));
-
-      function render(){
-        const q = (search && search.value || '').trim().toLowerCase();
-        let visible = 0;
-        cards.forEach(card=>{
-          const cat = card.dataset.category || '';
-          const title = card.dataset.title || card.querySelector('h3')?.textContent || '';
-          const matchCategory = active === 'الكل' || cat === active;
-          const matchText = !q || title.toLowerCase().includes(q) || card.querySelector('p')?.textContent.toLowerCase().includes(q);
-          const show = matchCategory && matchText;
-          card.style.display = show ? '' : 'none';
-          if(show) visible++;
-        });
-        if(visible === 0){
-          if(!document.getElementById('noResults')){
-            const nr = document.createElement('div'); nr.id='noResults'; nr.style.color='var(--muted)'; nr.style.padding='12px'; nr.textContent='لا توجد نتائج مطابقة.'; document.getElementById('newsGrid').appendChild(nr);
-          }
-        } else { const nr = document.getElementById('noResults'); if(nr) nr.remove(); }
-      }
-
-      filterButtons.forEach(btn=>{
-        btn.addEventListener('click', ()=>{
-          active = btn.dataset.filter;
-          filterButtons.forEach(b=>b.classList.toggle('active', b===btn));
-          render();
-        });
-      });
-      if(search) search.addEventListener('input', render);
-      render();
-
-      // Contact form (demo)
-      const form = document.getElementById('contactForm');
-      const result = document.getElementById('formResult');
-      if(form){
-        form.addEventListener('submit', (e)=>{
-          e.preventDefault();
-          // Basic validation (HTML does required)
-          const email = form.email.value.trim();
-          if(!email){ result.style.display='block'; result.textContent='الرجاء إدخال البريد الإلكتروني.'; return; }
-          result.style.display='block'; result.style.color='var(--gold)'; result.textContent='تم استلام الرسالة (تجريبي). ربط النموذج بخادم البريد مطلوب.';
-          form.reset();
-        });
-      }
-
-    })();
-  </script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
